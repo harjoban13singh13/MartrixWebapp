@@ -1,0 +1,35 @@
+[
+  {
+    "id": "post-1",
+    "title": "Why Motion Design Elevates User Experience",
+    "slug": "motion-design-ux",
+    "excerpt": "Animation is not decoration — it's communication. Well-crafted motion tells users where they are, where they came from, and where they can go.",
+    "category": "Design",
+    "publishedAt": "2026-03-01",
+    "thumbnail": "https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=800&q=80",
+    "readingTimeMinutes": 5,
+    "externalUrl": "https://example.com/blog/motion-design-ux"
+  },
+  {
+    "id": "post-2",
+    "title": "Building Scalable APIs with Node.js and PostgreSQL",
+    "slug": "scalable-apis-node-postgres",
+    "excerpt": "A practical guide to structuring Node.js APIs that can handle millions of requests — from connection pooling to query optimization.",
+    "category": "Engineering",
+    "publishedAt": "2026-02-14",
+    "thumbnail": "https://images.unsplash.com/photo-1629654297299-c8506221ca97?w=800&q=80",
+    "readingTimeMinutes": 8,
+    "externalUrl": "https://example.com/blog/scalable-apis"
+  },
+  {
+    "id": "post-3",
+    "title": "The Color Psychology Behind Successful Brand Identities",
+    "slug": "color-psychology-brand-identity",
+    "excerpt": "Color is one of the most powerful tools in a designer's toolkit. Here's how we use color theory to create brand identities that resonate.",
+    "category": "Branding",
+    "publishedAt": "2026-01-28",
+    "thumbnail": "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80",
+    "readingTimeMinutes": 6,
+    "externalUrl": "https://example.com/blog/color-psychology"
+  }
+]

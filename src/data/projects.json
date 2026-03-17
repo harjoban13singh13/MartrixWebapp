@@ -1,0 +1,62 @@
+[
+  {
+    "id": "project-1",
+    "title": "Pulse — Health & Wellness App",
+    "description": "A cross-platform mobile app for tracking workouts, nutrition, and mental wellness with real-time data sync.",
+    "thumbnail": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80",
+    "tags": ["React Native", "Node.js", "PostgreSQL"],
+    "liveUrl": "https://example.com",
+    "githubUrl": "https://github.com",
+    "featured": true
+  },
+  {
+    "id": "project-2",
+    "title": "Finova — Fintech Dashboard",
+    "description": "A comprehensive financial analytics dashboard with live market data, portfolio tracking, and predictive insights.",
+    "thumbnail": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80",
+    "tags": ["React", "D3.js", "Python"],
+    "liveUrl": "https://example.com",
+    "githubUrl": "https://github.com",
+    "featured": true
+  },
+  {
+    "id": "project-3",
+    "title": "Verdant — E-commerce Platform",
+    "description": "A sustainable goods marketplace with AI-powered product recommendations and carbon footprint tracking.",
+    "thumbnail": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80",
+    "tags": ["Next.js", "Stripe", "MongoDB"],
+    "liveUrl": "https://example.com",
+    "githubUrl": "https://github.com",
+    "featured": false
+  },
+  {
+    "id": "project-4",
+    "title": "Arcana — Brand Identity System",
+    "description": "Full visual identity system for a luxury lifestyle brand — logo, typography, color system, and brand guidelines.",
+    "thumbnail": "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80",
+    "tags": ["Figma", "Illustration", "Branding"],
+    "liveUrl": "https://example.com",
+    "githubUrl": null,
+    "featured": false
+  },
+  {
+    "id": "project-5",
+    "title": "Podfast — Podcast Platform",
+    "description": "A modern podcast streaming platform with AI-generated transcripts, chapter markers, and social sharing.",
+    "thumbnail": "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=800&q=80",
+    "tags": ["React", "Tailwind", "Node.js"],
+    "liveUrl": "https://example.com",
+    "githubUrl": "https://github.com",
+    "featured": true
+  },
+  {
+    "id": "project-6",
+    "title": "Hive — Team Collaboration Tool",
+    "description": "Real-time team workspace with Kanban boards, video calls, document editing, and workflow automation.",
+    "thumbnail": "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80",
+    "tags": ["React", "WebSockets", "Redis"],
+    "liveUrl": "https://example.com",
+    "githubUrl": "https://github.com",
+    "featured": false
+  }
+]
