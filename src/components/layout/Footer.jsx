@@ -25,11 +25,11 @@ function scrollTo(href) {
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-950 text-gray-400">
+    <footer style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Brand */}
-          <span className="font-display text-2xl font-extrabold bg-gradient-brand bg-clip-text text-transparent">
+          <span className="font-display text-xl font-bold text-white tracking-[-0.02em]">
             Martrix
           </span>
 
@@ -39,7 +39,8 @@ export default function Footer() {
               <li key={href}>
                 <button
                   onClick={() => scrollTo(href)}
-                  className="text-sm hover:text-white transition-colors"
+                  className="text-sm transition-colors hover:text-white duration-200"
+                  style={{ color: 'rgba(255,255,255,0.35)' }}
                 >
                   {label}
                 </button>
@@ -56,8 +57,10 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={label}
-                whileHover={{ scale: 1.2, color: '#EC4899' }}
-                className="text-gray-500 hover:text-white transition-colors text-lg"
+                whileHover={{ scale: 1.2, color: '#ffffff' }}
+                whileTap={{ scale: 0.92 }}
+                className="text-lg transition-colors"
+                style={{ color: 'rgba(255,255,255,0.22)' }}
               >
                 <Icon />
               </motion.a>
@@ -65,7 +68,13 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 border-t border-gray-800 pt-8 text-center text-sm">
+        <div
+          className="mt-8 pt-8 text-center text-xs"
+          style={{
+            borderTop: '1px solid rgba(255,255,255,0.05)',
+            color: 'rgba(255,255,255,0.2)',
+          }}
+        >
           © {new Date().getFullYear()} Martrix. Built with passion and pixels.
         </div>
       </div>

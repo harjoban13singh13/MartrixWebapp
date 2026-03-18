@@ -1,3 +1,4 @@
+import SceneBackground from './components/ui/SceneBackground';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import Hero from './components/sections/Hero';
@@ -8,16 +9,22 @@ import Contact from './components/sections/Contact';
 
 export default function App() {
   return (
-    <div className="font-body bg-[#FAFAFA] text-gray-900 overflow-x-hidden">
-      <Navbar />
-      <main>
-        <Hero />
-        <Services />
-        <Projects />
-        <Blog />
-        <Contact />
-      </main>
-      <Footer />
+    <div className="font-body text-white overflow-x-hidden" style={{ backgroundColor: '#05080c' }}>
+      {/* Fixed decorative background — sits behind everything */}
+      <SceneBackground />
+
+      {/* All page content sits above the background */}
+      <div className="relative z-10">
+        <Navbar />
+        <main>
+          <Hero />
+          <Services />
+          <Projects />
+          <Blog />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
     </div>
   );
 }

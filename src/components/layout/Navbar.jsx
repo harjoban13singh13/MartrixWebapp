@@ -7,8 +7,8 @@ import useScrollSpy from '../../hooks/useScrollSpy';
 const navLinks = [
   { label: 'Services', href: '#services' },
   { label: 'Projects', href: '#projects' },
-  { label: 'Blog', href: '#blog' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Blog',     href: '#blog' },
+  { label: 'Contact',  href: '#contact' },
 ];
 
 const SECTION_IDS = ['hero', 'services', 'projects', 'blog', 'contact'];
@@ -16,11 +16,8 @@ const SECTION_IDS = ['hero', 'services', 'projects', 'blog', 'contact'];
 function scrollTo(href) {
   const id = href.replace('#', '');
   const el = document.getElementById(id);
-  if (el && window.__lenis) {
-    window.__lenis.scrollTo(el, { offset: -80 });
-  } else if (el) {
-    el.scrollIntoView({ behavior: 'smooth' });
-  }
+  if (el && window.__lenis) window.__lenis.scrollTo(el, { offset: -80 });
+  else if (el) el.scrollIntoView({ behavior: 'smooth' });
 }
 
 export default function Navbar() {
@@ -30,11 +27,19 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mt-4 flex items-center justify-between rounded-2xl border border-white/20 bg-white/10 px-6 py-3 backdrop-blur-md shadow-lg">
+        <div
+          className="mt-4 flex items-center justify-between rounded-2xl px-6 py-3"
+          style={{
+            background: 'rgba(5,8,12,0.75)',
+            border: '1px solid rgba(255,255,255,0.07)',
+            backdropFilter: 'blur(20px)',
+            WebkitBackdropFilter: 'blur(20px)',
+          }}
+        >
           {/* Logo */}
           <button
             onClick={() => scrollTo('#hero')}
-            className="font-display text-xl font-extrabold bg-gradient-brand bg-clip-text text-transparent"
+            className="font-display text-lg font-bold text-white tracking-[-0.02em]"
           >
             Martrix
           </button>
@@ -48,13 +53,18 @@ export default function Navbar() {
                   <button
                     onClick={() => scrollTo(href)}
                     className={clsx(
-                      'text-sm font-semibold transition-colors duration-200',
-                      isActive
-                        ? 'bg-gradient-brand bg-clip-text text-transparent'
-                        : 'text-gray-700 hover:text-brand-purple'
+                      'text-sm font-medium transition-colors duration-200 relative pb-0.5',
+                      isActive ? 'text-white' : 'hover:text-white'
                     )}
+                    style={{ color: isActive ? '#fff' : 'rgba(255,255,255,0.45)' }}
                   >
                     {label}
+                    {isActive && (
+                      <span
+                        className="absolute bottom-0 left-0 right-0 h-px"
+                        style={{ background: 'linear-gradient(90deg, #4f8eff, #7c5cfc)' }}
+                      />
+                    )}
                   </button>
                 </li>
               );
@@ -64,7 +74,11 @@ export default function Navbar() {
           {/* CTA button (desktop) */}
           <button
             onClick={() => scrollTo('#contact')}
-            className="hidden md:inline-flex items-center gap-2 rounded-full bg-gradient-brand px-5 py-2 text-sm font-semibold text-white shadow hover:opacity-90 transition-opacity"
+            className="hidden md:inline-flex items-center gap-2 rounded-full px-5 py-2 text-sm font-medium text-white transition-all duration-200 active:scale-95"
+            style={{
+              background: 'linear-gradient(135deg, rgba(79,142,255,0.18), rgba(124,92,252,0.14))',
+              border: '1px solid rgba(79,142,255,0.3)',
+            }}
           >
             Let&apos;s Talk
           </button>
@@ -72,7 +86,8 @@ export default function Navbar() {
           {/* Hamburger (mobile) */}
           <button
             onClick={() => setMobileOpen((v) => !v)}
-            className="md:hidden text-gray-700 text-xl"
+            className="md:hidden text-xl transition-colors"
+            style={{ color: 'rgba(255,255,255,0.6)' }}
             aria-label="Toggle menu"
           >
             {mobileOpen ? <FiX /> : <FiMenu />}
@@ -87,14 +102,20 @@ export default function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -12 }}
               transition={{ duration: 0.2 }}
-              className="mt-2 rounded-2xl border border-white/20 bg-white/90 backdrop-blur-md shadow-xl px-6 py-4 md:hidden"
+              className="mt-2 rounded-2xl px-6 py-4 md:hidden"
+              style={{
+                background: 'rgba(5,8,12,0.95)',
+                border: '1px solid rgba(255,255,255,0.07)',
+                backdropFilter: 'blur(20px)',
+              }}
             >
               <ul className="flex flex-col gap-4">
                 {navLinks.map(({ label, href }) => (
                   <li key={href}>
                     <button
                       onClick={() => { scrollTo(href); setMobileOpen(false); }}
-                      className="w-full text-left text-base font-semibold text-gray-700 hover:text-brand-purple transition-colors"
+                      className="w-full text-left text-base font-medium transition-colors hover:text-white"
+                      style={{ color: 'rgba(255,255,255,0.5)' }}
                     >
                       {label}
                     </button>
@@ -103,7 +124,11 @@ export default function Navbar() {
                 <li>
                   <button
                     onClick={() => { scrollTo('#contact'); setMobileOpen(false); }}
-                    className="w-full rounded-full bg-gradient-brand py-3 text-sm font-semibold text-white"
+                    className="w-full rounded-full py-3 text-sm font-medium text-white"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(79,142,255,0.2), rgba(124,92,252,0.15))',
+                      border: '1px solid rgba(79,142,255,0.3)',
+                    }}
                   >
                     Let&apos;s Talk
                   </button>

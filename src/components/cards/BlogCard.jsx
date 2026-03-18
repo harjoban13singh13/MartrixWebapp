@@ -1,53 +1,72 @@
 import { motion } from 'framer-motion';
 import { FiArrowRight } from 'react-icons/fi';
-import Tag from '../ui/Tag';
 
 export default function BlogCard({ post }) {
   const { title, excerpt, category, publishedAt, thumbnail, readingTimeMinutes, externalUrl } = post;
 
   const formattedDate = new Date(publishedAt).toLocaleDateString('en-US', {
-    year: 'numeric', month: 'long', day: 'numeric',
+    year: 'numeric', month: 'short', day: 'numeric',
   });
 
   return (
     <motion.article
-      whileHover={{ y: -6 }}
+      whileHover={{ y: -5, scale: 1.01 }}
       transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-      className="group flex flex-col rounded-2xl bg-white border border-gray-100 overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300"
+      className="group glass-card overflow-hidden flex flex-col transition-all duration-300"
+      style={{ boxShadow: '0 4px 24px rgba(0,0,0,0.3)' }}
     >
       {/* Thumbnail */}
-      <div className="relative overflow-hidden h-48 bg-gray-100">
+      <div className="relative overflow-hidden h-48" style={{ background: 'rgba(255,255,255,0.03)' }}>
         <img
           src={thumbnail}
           alt={title}
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          style={{ opacity: 0.65 }}
           loading="lazy"
         />
         <div className="absolute top-3 left-3">
-          <Tag className="bg-white shadow-sm">{category}</Tag>
+          <span
+            className="rounded-full px-3 py-1 text-[10px] font-semibold uppercase tracking-wider backdrop-blur-sm"
+            style={{
+              background: 'rgba(79,142,255,0.15)',
+              border: '1px solid rgba(79,142,255,0.3)',
+              color: '#4f8eff',
+            }}
+          >
+            {category}
+          </span>
         </div>
       </div>
 
       {/* Content */}
       <div className="flex flex-col flex-1 p-6">
-        <div className="flex items-center gap-3 text-xs text-gray-400 mb-3">
+        <div className="flex items-center gap-3 text-[11px] mb-3" style={{ color: 'rgba(255,255,255,0.28)' }}>
           <time dateTime={publishedAt}>{formattedDate}</time>
           <span>·</span>
           <span>{readingTimeMinutes} min read</span>
         </div>
 
-        <h3 className="font-display text-lg font-bold text-gray-900 mb-2 leading-snug">
+        <h3
+          className="font-display text-base font-semibold text-white mb-2 leading-snug tracking-[-0.01em]"
+        >
           {title}
         </h3>
-        <p className="text-sm text-gray-500 leading-relaxed flex-1 mb-5">{excerpt}</p>
+        <p
+          className="text-sm leading-relaxed flex-1 mb-5"
+          style={{ color: 'rgba(255,255,255,0.38)' }}
+        >
+          {excerpt}
+        </p>
 
         <a
           href={externalUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1 text-sm font-semibold text-brand-purple hover:gap-2 transition-all duration-200"
+          className="inline-flex items-center gap-1.5 text-sm font-medium transition-colors duration-200 group/link"
+          style={{ color: 'rgba(255,255,255,0.4)' }}
         >
-          Read More <FiArrowRight className="transition-transform group-hover:translate-x-1" />
+          <span className="group-hover/link:text-[#4f8eff] transition-colors">Read More</span>
+          <FiArrowRight className="transition-transform group-hover/link:translate-x-1 group-hover/link:text-[#4f8eff]" />
         </a>
       </div>
     </motion.article>

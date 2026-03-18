@@ -4,8 +4,7 @@ export default function Tag({ children, className = '' }) {
   return (
     <span
       className={clsx(
-        'inline-block rounded-full px-3 py-1 text-xs font-semibold',
-        'bg-white/80 border border-gray-200 text-gray-600',
+        'inline-block rounded-full border border-white/10 px-3 py-0.5 text-xs text-white/40',
         className
       )}
     >

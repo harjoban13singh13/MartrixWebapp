@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -10,7 +10,8 @@
     overflow-x: hidden;
   }
   body {
-    @apply font-body text-gray-800 bg-[#FAFAFA] overflow-x-hidden;
+    @apply font-body text-white overflow-x-hidden;
+    background-color: #05080c;
   }
   * {
     box-sizing: border-box;
@@ -24,5 +25,56 @@
   }
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
+  }
+
+  /* ─── Glass card ─────────────────────────────────── */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 16px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  .glass-card:hover {
+    background: rgba(255, 255, 255, 0.055);
+    border-color: rgba(79, 142, 255, 0.25);
+  }
+
+  /* ─── Section divider ────────────────────────────── */
+  .section-divider {
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  /* ─── Noise overlay (applied via ::before on bg container) ─ */
+  .noise-overlay {
+    position: relative;
+  }
+  .noise-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 180px 180px;
+    opacity: 0.028;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* ─── Dot grid ───────────────────────────────────── */
+  .dot-grid {
+    background-image: radial-gradient(circle, rgba(255,255,255,0.12) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  /* ─── Glow text ──────────────────────────────────── */
+  .glow-blue {
+    text-shadow: 0 0 40px rgba(79, 142, 255, 0.5);
+  }
+
+  /* ─── Neon border ────────────────────────────────── */
+  .neon-border {
+    border: 1px solid rgba(79, 142, 255, 0.3);
+    box-shadow: 0 0 20px rgba(79, 142, 255, 0.08), inset 0 0 20px rgba(79, 142, 255, 0.03);
   }
 }

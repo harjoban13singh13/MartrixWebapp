@@ -1,13 +1,10 @@
 import { motion } from 'framer-motion';
 import SectionWrapper from '../ui/SectionWrapper';
-import GradientText from '../ui/GradientText';
 import { services } from '../../data/services';
 
 const containerVariants = {
   hidden: {},
-  show: {
-    transition: { staggerChildren: 0.1 },
-  },
+  show: { transition: { staggerChildren: 0.1 } },
 };
 
 const cardVariants = {
@@ -19,18 +16,25 @@ export default function Services() {
   return (
     <SectionWrapper
       id="services"
-      className="py-24 lg:py-32 px-4 sm:px-6 lg:px-8"
+      className="py-24 lg:py-32 px-4 sm:px-6 lg:px-8 section-divider"
+      style={{ background: 'rgba(5,8,12,0.6)', backdropFilter: 'blur(0px)' }}
     >
       <div className="mx-auto max-w-7xl">
         {/* Heading */}
         <div className="text-center mb-16">
-          <p className="text-sm font-semibold uppercase tracking-widest text-brand-purple mb-3">
+          <p
+            className="text-[11px] font-medium uppercase tracking-[0.22em] mb-4"
+            style={{ color: 'rgba(79,142,255,0.9)' }}
+          >
             What We Do
           </p>
-          <h2 className="font-display text-4xl font-extrabold text-gray-900 sm:text-5xl">
-            Services Built to <GradientText>Scale</GradientText>
+          <h2
+            className="font-display font-bold text-white"
+            style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', letterSpacing: '-0.025em' }}
+          >
+            Services Built to Scale
           </h2>
-          <p className="mt-4 mx-auto max-w-xl text-lg text-gray-500">
+          <p className="mt-4 mx-auto max-w-xl text-base" style={{ color: 'rgba(255,255,255,0.38)' }}>
             From strategy to launch, we handle every layer of the digital stack — beautifully.
           </p>
         </div>
@@ -41,25 +45,34 @@ export default function Services() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.2 }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
         >
-          {services.map(({ id, icon: Icon, title, description, gradient }) => (
+          {services.map(({ id, icon: Icon, title, description }) => (
             <motion.div
               key={id}
               variants={cardVariants}
-              whileHover={{ y: -6, boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}
-              className="group relative flex flex-col rounded-2xl border border-gray-100 bg-white p-7 transition-shadow duration-300"
+              whileHover={{ y: -5, scale: 1.01 }}
+              className="group glass-card p-7 flex flex-col transition-all duration-300"
+              style={{ boxShadow: '0 4px 24px rgba(0,0,0,0.25)' }}
             >
-              {/* Icon blob */}
-              <div className={`mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${gradient} text-white text-xl shadow-md`}>
+              {/* Icon */}
+              <div
+                className="mb-5 inline-flex h-11 w-11 items-center justify-center rounded-xl text-lg"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(79,142,255,0.15), rgba(124,92,252,0.1))',
+                  color: '#4f8eff',
+                  border: '1px solid rgba(79,142,255,0.2)',
+                }}
+              >
                 <Icon />
               </div>
 
-              <h3 className="font-display text-lg font-bold text-gray-900 mb-2">{title}</h3>
-              <p className="text-sm text-gray-500 leading-relaxed">{description}</p>
-
-              {/* Hover gradient border */}
-              <div className={`absolute inset-0 rounded-2xl ring-2 ring-transparent bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300 pointer-events-none`} />
+              <h3 className="font-display text-base font-semibold text-white mb-2 tracking-[-0.01em]">
+                {title}
+              </h3>
+              <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.38)' }}>
+                {description}
+              </p>
             </motion.div>
           ))}
         </motion.div>

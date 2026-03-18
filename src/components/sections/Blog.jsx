@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import SectionWrapper from '../ui/SectionWrapper';
-import GradientText from '../ui/GradientText';
 import BlogCard from '../cards/BlogCard';
 import blogPosts from '../../data/blogPosts.json';
 
@@ -20,18 +19,25 @@ export default function Blog() {
   return (
     <SectionWrapper
       id="blog"
-      className="py-24 lg:py-32 px-4 sm:px-6 lg:px-8"
+      className="py-24 lg:py-32 px-4 sm:px-6 lg:px-8 section-divider"
+      style={{ background: 'rgba(5,8,12,0.6)' }}
     >
       <div className="mx-auto max-w-7xl">
         {/* Heading */}
         <div className="text-center mb-16">
-          <p className="text-sm font-semibold uppercase tracking-widest text-brand-cyan mb-3">
+          <p
+            className="text-[11px] font-medium uppercase tracking-[0.22em] mb-4"
+            style={{ color: 'rgba(0,212,170,0.9)' }}
+          >
             Insights
           </p>
-          <h2 className="font-display text-4xl font-extrabold text-gray-900 sm:text-5xl">
-            Fresh From the <GradientText>Blog</GradientText>
+          <h2
+            className="font-display font-bold text-white"
+            style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', letterSpacing: '-0.025em' }}
+          >
+            Fresh From the Blog
           </h2>
-          <p className="mt-4 mx-auto max-w-xl text-lg text-gray-500">
+          <p className="mt-4 mx-auto max-w-xl text-base" style={{ color: 'rgba(255,255,255,0.38)' }}>
             Thoughts on design, engineering, and building products people love.
           </p>
         </div>
@@ -42,7 +48,7 @@ export default function Blog() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.1 }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
         >
           {latest.map((post) => (
             <motion.div key={post.id} variants={itemVariants}>
